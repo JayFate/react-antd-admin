@@ -1,10 +1,10 @@
 import { FC, lazy } from 'react';
-import Dashboard from '@/pages/dashboard';
-import LoginPage from '@/pages/login';
-import LayoutPage from '@/pages/layout';
 import { Navigate, RouteObject } from 'react-router';
 import WrapperRouteComponent from './config';
 import { useRoutes } from 'react-router-dom';
+import Dashboard from '@/pages/dashboard';
+import LoginPage from '@/pages/login';
+import LayoutPage from '@/pages/layout';
 
 const NotFound = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/404'));
 const Documentation = lazy(() => import(/* webpackChunkName: "404'"*/ '@/pages/doucumentation'));

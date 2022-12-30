@@ -1,11 +1,11 @@
 import { Suspense, useEffect } from 'react';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider } from 'react-intl'; // react-intl 前端国际化
 import { localeConfig, LocaleFormatter } from './locales';
 import { ConfigProvider, Spin, theme as a } from 'antd';
 import enUS from 'antd/es/locale/en_US';
 import zhCN from 'antd/es/locale/zh_CN';
 import dayjs from 'dayjs';
-import 'dayjs/locale/zh-cn';
+import 'dayjs/locale/zh-cn'; // 加载 dayjs 语言配置
 import RenderRouter from './routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { history, HistoryRouter } from '@/routes/history';
@@ -43,6 +43,7 @@ const App: React.FC = () => {
   // more languages options can be added here
   useEffect(() => {
     if (locale === 'en_US') {
+      // 全局设置 dayjs local 语言
       dayjs.locale('en');
     } else if (locale === 'zh_CN') {
       dayjs.locale('zh-cn');
@@ -62,6 +63,7 @@ const App: React.FC = () => {
     }
   };
 
+  // algorithm 算法
   return (
     <ConfigProvider
       locale={getAntdLocale()}
@@ -70,6 +72,7 @@ const App: React.FC = () => {
     >
       <IntlProvider locale={locale.split('_')[0]} messages={localeConfig[locale]}>
         <HistoryRouter history={history}>
+          {/* <Suspense> 组件，让你可以“等待”目标代码加载，并且可以直接指定一个加载的界面（像是个 spinner），让它在用户等待的时候显示 */}
           <Suspense fallback={null}>
             <Spin
               spinning={loading}
