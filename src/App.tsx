@@ -7,6 +7,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn'; // 加载 dayjs 语言配置
 import RenderRouter from './routes';
+// useSelector 可以直接拿到 store 中定义的 state
 import { useDispatch, useSelector } from 'react-redux';
 import { history, HistoryRouter } from '@/routes/history';
 import { setGlobalState } from './stores/global.store';
@@ -14,6 +15,7 @@ import { setGlobalState } from './stores/global.store';
 const App: React.FC = () => {
   const { locale } = useSelector(state => state.user);
   const { theme, loading } = useSelector(state => state.global);
+  // 通过 dispatch 派发 action
   const dispatch = useDispatch();
 
   const setTheme = (dark = true) => {
@@ -64,6 +66,8 @@ const App: React.FC = () => {
   };
 
   // algorithm 算法
+  // ConfigProvider 使用 React 的 context 特性，为组件提供统一的全局化配置
+  // Spin 加载中，用于页面和区块的加载中状态。
   return (
     <ConfigProvider
       locale={getAntdLocale()}

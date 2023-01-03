@@ -81,6 +81,7 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
           <span id="sidebar-trigger">{collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}</span>
         </div>
         <div className="actions">
+          {/* Tooltip 文字提示气泡框 */}
           <Tooltip
             title={formatMessage({
               id: theme === 'dark' ? 'gloabal.tips.theme.lightTooltip' : 'gloabal.tips.theme.darkTooltip',
@@ -93,6 +94,7 @@ const HeaderComponent: FC<HeaderProps> = ({ collapsed, toggle }) => {
             </span>
           </Tooltip>
           <HeaderNoticeComponent />
+          {/* Dropdown 向下弹出的下拉菜单 */}
           <Dropdown
             menu={{
               onClick: info => selectLocale(info),

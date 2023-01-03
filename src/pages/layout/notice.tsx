@@ -10,6 +10,9 @@ const antIcon = <LoadingOutlined style={{ fontSize: 24 }} spin />;
 
 const { TabPane } = Tabs;
 
+/**
+ * Header 右侧的消息通知组件
+ */
 const HeaderNoticeComponent: FC = () => {
   const [visible, setVisible] = useState(false);
   const [noticeList, setNoticeList] = useState<Notice[]>([]);
@@ -95,6 +98,9 @@ const HeaderNoticeComponent: FC = () => {
     </div>
   );
 
+  // Popover 点击/鼠标移入元素，弹出气泡式的卡片浮层, 比 Tooltip 功能更复杂
+  // Tooltip 简单的文字提示气泡框
+  // 点击 Popover 显示消息弹框
   return (
     <Popover
       content={tabs}

@@ -10,6 +10,9 @@ export type WrapperRouteProps = RouteProps & {
   auth?: boolean;
 };
 
+/**
+ * 用于辅助权限判断的高阶组件
+ */
 const WrapperRouteComponent: FC<WrapperRouteProps> = ({ titleId, auth, ...props }) => {
   const { formatMessage } = useIntl();
 
