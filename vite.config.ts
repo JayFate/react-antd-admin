@@ -1,8 +1,8 @@
 import path from 'path';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import vitePluginImp from 'vite-plugin-imp';
-import svgrPlugin from 'vite-plugin-svgr';
+import vitePluginImp from 'vite-plugin-imp'; // 对组件库按需引入
+import svgrPlugin from 'vite-plugin-svgr'; // Vite plugin to transform SVGs into React components
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -37,6 +37,7 @@ export default defineConfig({
         {
           libName: 'lodash',
           libDirectory: '',
+          // whether convert component name from camel to dash
           camel2DashComponentName: false,
           style: () => {
             return false;
